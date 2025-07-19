@@ -53,13 +53,14 @@ agent = initialize_agent(
     tools=[arxiv_tool],
     llm=llm,
     agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
-    verbose=True
+    verbose=True,
+    handle_parsing_errors=True
 )
 
 # --- Agent-Query ---
 query = (
     "Use the ArxivSearch tool to get recent papers on multimodal large language models, "
-    "then provide a detailed and structured summary of what the current research focuses on, including key techniques and trends."
+    "and then provide a detailed and structured summary of what the current research focuses on, including key techniques and trends."
 )
 
 response = agent.run(query)
